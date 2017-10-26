@@ -1,0 +1,6 @@
+.sidenav-fab-container md-sidenav {
+  max-width: 200px;
+}
+.sidenav-fab-container{
+  overflow: auto;
+}

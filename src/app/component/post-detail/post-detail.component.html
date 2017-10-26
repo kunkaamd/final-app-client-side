@@ -1,0 +1,12 @@
+<div fxLayout="row" class="post-detail">
+  <div fxFlex="2"></div>
+  <div fxFlex="85">
+      <div *ngIf="post?.content" class="content-post">
+        <section [innerHTML]="post.content" highlight-js-content=".highlight"></section>
+      </div>
+      <hr>
+      <h3>Comments</h3>
+      <app-list-comment [postId]="postId" [comments]="post?.comment"></app-list-comment>
+  </div>
+  <div fxFlex></div>
+</div>

@@ -1,0 +1,24 @@
+.header-toolbar {
+    box-shadow: 0 3px 5px -1px rgba(0,0,0,.2),0 6px 10px 0 rgba(0,0,0,.14),0 1px 18px 0 rgba(0,0,0,.12);
+    position: relative;
+    z-index: 2;
+}
+.header-toolbar-fixed {
+    box-shadow: 0 3px 5px -1px rgba(0,0,0,.2),0 6px 10px 0 rgba(0,0,0,.14),0 1px 18px 0 rgba(0,0,0,.12);
+    position: fixed;
+    z-index: 2;
+}
+  
+.fill-spacer {
+    flex: 1 1 auto;
+}
+.img-github {
+    height: 26px;
+    margin: 0 4px 3px 0;
+}
+.name-application{
+    text-transform: uppercase;
+}
+.button-user{
+    padding-left: 5px;
+}

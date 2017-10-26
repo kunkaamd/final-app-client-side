@@ -1,0 +1,6 @@
+.scrolling-content {
+    overflow: visible;
+    min-height: 100vh;
+    height: 100%;
+    bottom: 0;
+}

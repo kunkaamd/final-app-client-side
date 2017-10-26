@@ -1,0 +1,16 @@
+<mat-list>
+  <mat-list-item *ngFor="let comment of comments">
+    <img matListAvatar [src]="imgUrlbase+comment.user?.avatar">
+    <h3 matLine> {{comment.user?.email}} </h3>
+    <span matLine> {{comment.user?.name}} </span>
+    <p matLine>
+      <span class="demo-2">{{comment.comment}} </span>
+    </p>
+  </mat-list-item>
+</mat-list>
+<div *ngIf="user.isLoggedIn" fxLayout="row" fxLayoutAlign="space-between center" class="create-comment">
+  <mat-form-field class="comment-with">
+    <textarea matInput placeholder="Comment" [(ngModel)]="commendsend"></textarea>
+  </mat-form-field>
+  <button mat-raised-button [disabled]="commendsend==''" (click)="onSendComment()">Gửi</button>
+</div>

@@ -1,0 +1,8 @@
+.docs-footer-copyright {
+    display: flex;
+    flex: 1;
+    justify-content: flex-end;
+}
+.footer-toolbar p{
+    font-size: 13px;
+}

@@ -1,0 +1,12 @@
+<div class="navbar-container">
+  <nav *ngFor="let series of list">
+    <a routerLink="/post-of-series/{{series.name}}/{{series.id}}" [title]="series.name"><h3>{{series.name | truncate:28}}</h3></a>
+    <ul>
+      <li *ngFor="let post of series.post">
+        <a routerLink="/post-detail/{{post.id}}" [title]="post.title">
+          {{post.title | truncate:28}}
+        </a>
+      </li>
+    </ul>
+  </nav>           
+</div>

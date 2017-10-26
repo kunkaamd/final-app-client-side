@@ -1,0 +1,32 @@
+<div fxLayout="row" style="margin-top: 25px;margin-bottom: 25px;">
+    <div fxFlex="5"></div>
+    <div fxFlex="90">
+        <div fxLayout="column" fxLayoutAlign="space-between start"> 
+            <mat-error [innerHTML]="error">
+            </mat-error>
+            <mat-form-field>
+                <input matInput placeholder="Tên bài viết" [(ngModel)]="namePost">
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput placeholder="Nguồn" [(ngModel)]="source">
+            </mat-form-field>
+            <div style="width: 50%"><label>Ảnh đại diện bài viết</label><input style="float:right" #fileInput type="file" accept="image/*"></div>
+            <ckeditor [(ngModel)]="post" debounce="500" style="margin-top: 15px"></ckeditor>
+            <button mat-button color="primary" (click)="onCreatePost()">
+                <div fxLayout="row" fxLayoutAlign="center center" >
+                    <mat-progress-spinner #spinner style="width:25px;height: 25px;" *ngIf="buttonPost"
+                        [strokeWidth] ="3"
+                        [diameter]="25"
+                        [color]="'primary'"
+                        [mode]="buttonPost?'indeterminate':'determinate'"
+                        [value]="50"
+                        >
+                    </mat-progress-spinner>
+                    Đăng bài
+                </div>
+            </button>
+        
+        </div>
+    </div>
+    <div fxFlex></div>
+</div>

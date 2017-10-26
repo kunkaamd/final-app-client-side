@@ -1,0 +1,47 @@
+<form [formGroup]="formSignUp" novalidate (ngSubmit)="onSubmit()">
+  <!-- EMAIL -->
+  <mat-form-field class="input-signup">
+      <input matInput placeholder="name"  formControlName="name" required>
+      <mat-error *ngIf="formSignUp.get('name').errors?.minlength">
+          tên phải dài hơn 6 ký tự
+      </mat-error>
+      <mat-error *ngIf="formSignUp.get('name').errors?.maxlength">
+            tên phải ngắn hơn 25 ký tự
+        </mat-error>
+  </mat-form-field>
+  <!-- EMAIL -->
+  <mat-form-field class="input-signup">
+      <input matInput placeholder="email"  formControlName="email" required>
+      <mat-error *ngIf="formSignUp.get('email').errors?.pattern">
+          nhập đúng email
+      </mat-error>
+  </mat-form-field>
+  <!-- PASSWORD -->
+  <mat-form-field class="input-signup">
+      <input matInput type="password" placeholder="password"  formControlName="password" required>
+      <mat-error *ngIf="formSignUp.get('password').errors?.pattern">
+          password phải có ít nhất 8 ký tự và ít nhất 1 số hoặc chữ
+      </mat-error>
+  </mat-form-field>
+  <!-- RE_PASSWORD -->
+  <mat-form-field class="input-signup">
+      <input matInput type="password" placeholder="xác nhận password"  formControlName="re_password" required>
+      
+      <mat-error *ngIf="formSignUp.get('re_password').errors?.MatchPassword">
+          mật khẩu xác nhận phải trùng với mật khẩu
+      </mat-error>
+  </mat-form-field>
+  <button type="submit"[disabled]="disableButton" mat-raised-button color="primary">
+    <div  fxLayout="row" fxLayoutAlign="start center">
+        <mat-progress-spinner #spinner style="width:25px;height: 25px;" *ngIf="disableButton"
+        [strokeWidth] ="3"
+        [diameter]="25"
+        [color]="'primary'"
+        [mode]="disableButton?'indeterminate':'determinate'"
+        [value]="50"
+        >
+        </mat-progress-spinner>
+        Đăng ký
+    </div>
+  </button>
+</form>
