@@ -40,7 +40,8 @@
     <mat-menu x-position="before" #menuuser="matMenu">
         <button mat-menu-item routerLink="/"><mat-icon>info</mat-icon>Thông tin cá nhân</button>
         <button mat-menu-item routerLink="/post-of-user/{{userService.id}}"><mat-icon>code</mat-icon>Bài viết của tôi</button>
-        <button mat-menu-item routerLink="/create-post"><mat-icon>create</mat-icon>Tạo bài viết</button>
+        <button *ngIf="userService.permission?.indexOf('create-post')!=-1" mat-menu-item routerLink="/create-post"><mat-icon>create</mat-icon>Tạo bài viết</button>
+        <button *ngIf="userService.permission?.indexOf('published')!=-1" mat-menu-item routerLink="/browse-post"><mat-icon>note_add</mat-icon>Duyệt bài viết</button>
         <button mat-menu-item (click)="logout()"><mat-icon>subdirectory_arrow_left</mat-icon>Đăng xuất</button>
     </mat-menu>
     <mat-menu x-position="before" #menuseries="matMenu">

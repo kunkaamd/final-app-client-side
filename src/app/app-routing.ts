@@ -1,9 +1,11 @@
+import { BrowsePostComponent } from './component/browse-post/browse-post.component';
+import { PermissionGuardService } from './service/guard/permission-guard.service';
+import { AuthGuardService } from './service/guard/auth-guard.service';
+import { LoginGuardService } from './service/guard/login-guard.service';
 import { PostOfSeriesComponent } from './component/post-of-series/post-of-series.component';
 import { AllPostComponent } from './component/all-post/all-post.component';
-import { LoginGuardService } from './service/login-guard.service';
 import { PostDetailComponent } from './component/post-detail/post-detail.component';
 import { ListMyPostComponent } from './component/list-my-post/list-my-post.component';
-import { AuthGuardService } from './service/auth-guard.service';
 import { CreatePostComponent } from './component/create-post/create-post.component';
 import { TabSignupSigninComponent } from './component/tab-signup-signin/tab-signup-signin.component';
 import { PageNotFoundComponent } from './component/page-not-found/page-not-found.component';
@@ -15,14 +17,13 @@ const appRoutes: Routes = [
     {   
         path: 'signin',
         component: TabSignupSigninComponent ,
-        data : {title : 'Đăng nhập / Đăng ký'},
         canActivate: [LoginGuardService],
     },
     {
         path: 'create-post',
         component: CreatePostComponent,
-        data: { title: 'Tạo bài viết' },
-        canActivate: [AuthGuardService],
+        data: {permission: 'create-post'},
+        canActivate: [PermissionGuardService],
     },
     {
         path: 'post-of-series/:title/:id',
@@ -37,6 +38,12 @@ const appRoutes: Routes = [
         path: 'post-detail/:id',
         component: PostDetailComponent,
     },
+    {
+        path: 'browse-post',
+        component: BrowsePostComponent,
+        data: {permission: 'published'},
+        canActivate: [PermissionGuardService],
+    },
     { path: '**', component: PageNotFoundComponent }
 ];
 @NgModule({
@@ -49,6 +56,6 @@ const appRoutes: Routes = [
       )
     ],
     exports: [RouterModule],
-    providers: [AuthGuardService,LoginGuardService]
+    providers: [AuthGuardService,LoginGuardService,PermissionGuardService]
   })
 export class AppRoutingModule { }

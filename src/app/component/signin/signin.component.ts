@@ -37,11 +37,11 @@ export class SigninComponent implements OnInit {
       this.disableButton=true;
       this.fetchdataService.fetchDataMethodPost('auth/login',this.formSignIn.value).subscribe(
         data => {
-          console.log(data);
           this.userService.email = data['user'].email;
           this.userService.name = data['user'].name;
           this.userService.id = data['user'].id;
           this.userService.token = data['token'];
+          this.userService.setPermission(data['permission']);
           this.userService.avatar = data['user'].avatar;
           this.userService.isLoggedIn = true;
           this.openDialog('Đăng nhập thành công','/');

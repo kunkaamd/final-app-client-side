@@ -20,4 +20,14 @@ export class FetchdataService {
   fetchDataMethodGet(url:string):Observable<Object>{
     return this.http.get(GlobalVariable.BASE_API_URL+url);
   }
+  methodDeleteWithAuth(url:string,token:string):Observable<Object>{
+    return this.http.delete(GlobalVariable.BASE_API_URL+url,{
+      headers: new HttpHeaders().set('Authorization',['Bearer '+token])
+    });
+  }
+  methodPatchWithAuth(url:string,body:any,token:string):Observable<Object>{
+    return this.http.patch(GlobalVariable.BASE_API_URL+url,body,{
+      headers: new HttpHeaders().set('Authorization',['Bearer '+token])
+    });
+  }
 }

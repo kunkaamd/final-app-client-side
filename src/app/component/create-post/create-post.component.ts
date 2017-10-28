@@ -21,9 +21,9 @@ export class CreatePostComponent implements OnInit {
   buttonPost:boolean = false;
   error:string = "";
   @ViewChild("fileInput") fileInput;
-  constructor(private http: HttpClient,route: ActivatedRoute,private titleservice:TitleService,
+  constructor(private http: HttpClient,private titleservice:TitleService,
     private fetdataService:FetchdataService,private user:UserService,public dialog: MatDialog) { 
-    this.titleservice.changeTitle(route.snapshot.data["title"]);
+    this.titleservice.changeTitle("Tạo bài viết");
   }
 
   ngOnInit() {

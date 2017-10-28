@@ -10,8 +10,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TabSignupSigninComponent implements OnInit {
 
-  constructor(route: ActivatedRoute,private titleservice:TitleService) { 
-    this.titleservice.changeTitle(route.snapshot.data["title"]);
+  constructor(private titleservice:TitleService) { 
+    this.titleservice.changeTitle("Đăng nhập / Đăng ký");
   }
 
   ngOnInit() {

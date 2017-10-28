@@ -1,3 +1,4 @@
+import { UserService } from './../../service/user.service';
 import { Router } from '@angular/router';
 import { DialogNotificationComponent } from './../dialog-notification/dialog-notification.component';
 import { MatDialog } from '@angular/material';
@@ -5,7 +6,6 @@ import { FetchdataService } from './../../service/fetchdata.service';
 import { PasswordConfirm } from './passwordvalidation';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
-import { UserService } from 'app/service/user.service';
 const EMAIL_REGEX = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
 const PASS_REGEX = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
 @Component({
@@ -43,13 +43,12 @@ export class SignupComponent implements OnInit {
       this.disableButton=true;
       this.fetchdataService.fetchDataMethodPost('auth/register',this.formSignUp.value).subscribe(
         data => {
-          console.log(data);
           this.userService.email = data['user'].email;
           this.userService.name = data['user'].name;
           this.userService.id = data['user'].id;
           this.userService.token = data['token'];
+          this.userService.setPermission(data['permission']);
           this.userService.avatar = data['user'].avatar;
-          
           this.userService.isLoggedIn = true;
           this.openDialog('Đăng ký thành công','/');
         },

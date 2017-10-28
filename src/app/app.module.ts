@@ -35,6 +35,7 @@ import { PostOfSeriesComponent } from './component/post-of-series/post-of-series
 import { TruncatePipe } from './pipe/truncate.pipe';
 import { ListCommentComponent } from './component/list-comment/list-comment.component';
 import { InformationUserComponent } from './component/information-user/information-user.component';
+import { BrowsePostComponent } from './component/browse-post/browse-post.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -60,6 +61,7 @@ import { InformationUserComponent } from './component/information-user/informati
     TruncatePipe,
     ListCommentComponent,
     InformationUserComponent,
+    BrowsePostComponent,
   ],
   imports: [
     BrowserModule,

@@ -11,6 +11,22 @@ export class UserService {
 	private _avatar:string;
 	private _isLoggedIn:boolean = false;
 	private cookieService: CookieService;
+	private _permission:string[];
+
+
+
+	public get permission(): string[] {
+		return this._permission;
+	}
+
+	public setPermission(value:any){
+		this._permission = [];
+		value.forEach(item => {
+			this._permission.push(item.name);
+		});
+	}
+	
+
 
 	private loginSource = new Subject<boolean>();
 	login$ = this.loginSource.asObservable();
@@ -42,6 +58,7 @@ export class UserService {
 		this.cookieService.setCookie('name',this._name,1);
 		this.cookieService.setCookie('token',this._token,1);
 		this.cookieService.setCookie('avatar',this._avatar,1);
+		this.cookieService.setCookie('permission',JSON.stringify(this._permission),1);
 		this.loginSource.next(true);
 		this._isLoggedIn = value;
 	}
@@ -79,6 +96,7 @@ export class UserService {
 		this.cookieService.deleteCookie('name');
 		this.cookieService.deleteCookie('token');
 		this.cookieService.deleteCookie('avatar');
+		this.cookieService.deleteCookie('permission');
 		this._isLoggedIn = false;
 		this.loginSource.next(false);
 	}
@@ -89,6 +107,7 @@ export class UserService {
 			this._name = this.cookieService.getCookie('name');
 			this._token = this.cookieService.getCookie('token');
 			this._avatar = this.cookieService.getCookie('avatar');
+			this._permission = JSON.parse(this.cookieService.getCookie('permission'));
 			this._isLoggedIn = true;
 			return true;
 		}else{

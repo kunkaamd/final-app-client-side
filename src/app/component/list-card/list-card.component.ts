@@ -9,8 +9,8 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class ListCardComponent implements OnInit {
   @Input() posts:any;
+  @Input() isbrowse:boolean;
   constructor() { 
-
   }
 
   ngOnInit() {
