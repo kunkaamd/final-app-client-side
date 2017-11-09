@@ -10,6 +10,30 @@
             <mat-form-field>
                 <input matInput placeholder="Nguồn" [(ngModel)]="source">
             </mat-form-field>
+            <div>
+                <mat-form-field>
+                    <mat-select placeholder="Series" [(ngModel)]="series_id">
+                        <mat-option *ngFor="let item of listseries" [value]="item.id">
+                        {{ item.name }}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <button mat-raised-button color="warn" (click)="openCreateSeries()">Tạo series mới</button>
+            </div>
+            <mat-form-field class="input-chip">
+                <mat-chip-list #chipList>
+                    <mat-chip *ngFor="let tag of tags" [selectable]="selectable"
+                            [removable]="true" (remove)="removeTag(tag)">
+                    {{tag}}
+                    <mat-icon matChipRemove>cancel</mat-icon>
+                    </mat-chip>
+                    <input placeholder="New tag..."
+                            [matChipInputFor]="chipList"
+                            [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                            [matChipInputAddOnBlur]="true"
+                            (matChipInputTokenEnd)="addTag($event)" />
+                </mat-chip-list>
+            </mat-form-field>
             <div style="width: 50%"><label>Ảnh đại diện bài viết</label><input style="float:right" #fileInput type="file" accept="image/*"></div>
             <ckeditor [(ngModel)]="post" debounce="500" style="margin-top: 15px"></ckeditor>
             <button mat-button color="primary" (click)="onCreatePost()">
@@ -25,7 +49,6 @@
                     Đăng bài
                 </div>
             </button>
-        
         </div>
     </div>
     <div fxFlex></div>

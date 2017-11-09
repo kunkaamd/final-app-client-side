@@ -37,17 +37,21 @@ export class SigninComponent implements OnInit {
       this.disableButton=true;
       this.fetchdataService.fetchDataMethodPost('auth/login',this.formSignIn.value).subscribe(
         data => {
-          this.userService.email = data['user'].email;
-          this.userService.name = data['user'].name;
-          this.userService.id = data['user'].id;
-          this.userService.token = data['token'];
-          this.userService.setPermission(data['permission']);
-          this.userService.avatar = data['user'].avatar;
-          this.userService.isLoggedIn = true;
-          this.openDialog('Đăng nhập thành công','/');
+          if(data['user'].confirm == 0){
+            this.openDialog('Bạn chưa xác thực email','/',data['token']);
+          }else{
+            this.userService.email = data['user'].email;
+            this.userService.name = data['user'].name;
+            this.userService.id = data['user'].id;
+            this.userService.token = data['token'];
+            this.userService.setPermission(data['permission']);
+            this.userService.avatar = data['user'].avatar;
+            this.userService.isLoggedIn = true;
+            this.openDialog('Đăng nhập thành công','/',null);
+          }
         },
         error => {
-          this.openDialog(error.error,null);
+          this.openDialog(error.error,null,null);
           this.disableButton=false;
         }
       );
@@ -56,10 +60,10 @@ export class SigninComponent implements OnInit {
       
     }
   }
-  openDialog(message:string,urlClose:string): void {
+  openDialog(message:string,urlClose:string,token:any): void {
     let dialogRef = this.dialog.open(DialogNotificationComponent, {
       width: '250px',
-      data: { message: message,urlClose: urlClose }
+      data: { message: message,urlClose: urlClose,confirmuser:token }
     });
     if(urlClose){
       dialogRef.afterClosed().subscribe(result => {

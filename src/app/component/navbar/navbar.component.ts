@@ -11,7 +11,6 @@ import { Component, OnInit, HostListener, OnDestroy } from '@angular/core';
 })
 export class NavbarComponent implements OnInit,OnDestroy {
   fixedTopNav:boolean = false;
-  series:any;
   isLogin:boolean = false;
   subscription:Subscription;
   constructor(public userService:UserService,private petchdata:FetchdataService) { 
@@ -28,10 +27,6 @@ export class NavbarComponent implements OnInit,OnDestroy {
     }
   }
   ngOnInit() {
-    this.petchdata.fetchDataMethodGet('series').subscribe(
-      data => {this.series = data['data']},
-      error => {}
-    );
   }
   logout(){
     this.userService.logout();

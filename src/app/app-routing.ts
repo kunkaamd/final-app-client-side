@@ -1,3 +1,5 @@
+import { ListPostOfUserComponent } from './component/list-post-of-user/list-post-of-user.component';
+import { ListSeriesComponent } from './component/list-series/list-series.component';
 import { BrowsePostComponent } from './component/browse-post/browse-post.component';
 import { PermissionGuardService } from './service/guard/permission-guard.service';
 import { AuthGuardService } from './service/guard/auth-guard.service';
@@ -5,7 +7,6 @@ import { LoginGuardService } from './service/guard/login-guard.service';
 import { PostOfSeriesComponent } from './component/post-of-series/post-of-series.component';
 import { AllPostComponent } from './component/all-post/all-post.component';
 import { PostDetailComponent } from './component/post-detail/post-detail.component';
-import { ListMyPostComponent } from './component/list-my-post/list-my-post.component';
 import { CreatePostComponent } from './component/create-post/create-post.component';
 import { TabSignupSigninComponent } from './component/tab-signup-signin/tab-signup-signin.component';
 import { PageNotFoundComponent } from './component/page-not-found/page-not-found.component';
@@ -31,8 +32,7 @@ const appRoutes: Routes = [
     },
     {
         path: 'post-of-user/:id',
-        component: ListMyPostComponent,
-        canActivate: [AuthGuardService],
+        component: ListPostOfUserComponent,
     },
     {
         path: 'post-detail/:id',
@@ -43,6 +43,10 @@ const appRoutes: Routes = [
         component: BrowsePostComponent,
         data: {permission: 'published'},
         canActivate: [PermissionGuardService],
+    },
+    {
+        path: 'series',
+        component: ListSeriesComponent,
     },
     { path: '**', component: PageNotFoundComponent }
 ];

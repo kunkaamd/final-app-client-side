@@ -1,0 +1,11 @@
+<h2 mat-dialog-title>Tạo series mới</h2>
+<div mat-dialog-content>
+  <p>Tên series mới</p>
+  <mat-form-field>
+    <input matInput tabindex="1" [(ngModel)]="series" required>
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onAddNew()" tabindex="2">Thêm mới</button>
+  <button mat-button (click)="onNoClick()" tabindex="-1">Thoát</button>
+</div>

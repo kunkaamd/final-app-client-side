@@ -9,12 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SidenavComponent implements OnInit {
   
-  list:any;
+  author:any;
+  tags:any;
   constructor(private fetchData:FetchdataService) { }
 
   ngOnInit() {
-    this.fetchData.fetchDataMethodGet('series-with-posts').subscribe(
-      data => {this.list = data['data']}
+    this.fetchData.fetchDataMethodGet('user-hot').subscribe(
+      data => {this.author = data['data']}
+    )
+    this.fetchData.fetchDataMethodGet('tag-popular').subscribe(
+      data => {this.tags = data['data']}
     )
   }
 

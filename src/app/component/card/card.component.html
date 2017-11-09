@@ -6,12 +6,17 @@
     </mat-card-header>
     <img mat-card-image [src]="postImage" alt="{{item.title}}">
     <mat-card-content>
-      <p>
+      <h4>
         {{item.title}}
-      </p>
+      </h4>
+      <mat-chip-list>
+        <mat-chip *ngFor="let tag of item.tag" selected="true" color="warn">
+          {{tag.name}}
+        </mat-chip>
+      </mat-chip-list>
     </mat-card-content>
     <mat-card-actions>
-      <button mat-button routerLink="post-detail/{{item.id}}">XEM</button>
+      <button mat-button routerLink="/post-detail/{{item.id}}">XEM</button>
       <button *ngIf="isbrowse" (click)="onPublishedPost(item.id)" mat-button>DUYỆT</button>
       <button *ngIf="isbrowse" (click)="onDeletePost(item.id)" mat-button>XÓA</button>
     </mat-card-actions>

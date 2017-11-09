@@ -20,6 +20,11 @@ export class FetchdataService {
   fetchDataMethodGet(url:string):Observable<Object>{
     return this.http.get(GlobalVariable.BASE_API_URL+url);
   }
+  fetchDataMethodGetWithAuth(url:string,token:string):Observable<Object>{
+    return this.http.get(GlobalVariable.BASE_API_URL+url,{
+      headers: new HttpHeaders().set('Authorization',['Bearer '+token])
+    });
+  }
   methodDeleteWithAuth(url:string,token:string):Observable<Object>{
     return this.http.delete(GlobalVariable.BASE_API_URL+url,{
       headers: new HttpHeaders().set('Authorization',['Bearer '+token])

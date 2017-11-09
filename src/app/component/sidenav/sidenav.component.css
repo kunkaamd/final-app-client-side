@@ -1,10 +1,7 @@
 .navbar-container{
   width: 200px;
 }
-.navbar-container a{
-  text-decoration: none;
-}
-.navbar-container a h3{
+.navbar-container h3{
   border: none;
   font-size: 10px;
   letter-spacing: 1px;

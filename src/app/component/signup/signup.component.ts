@@ -43,20 +43,11 @@ export class SignupComponent implements OnInit {
       this.disableButton=true;
       this.fetchdataService.fetchDataMethodPost('auth/register',this.formSignUp.value).subscribe(
         data => {
-          this.userService.email = data['user'].email;
-          this.userService.name = data['user'].name;
-          this.userService.id = data['user'].id;
-          this.userService.token = data['token'];
-          this.userService.setPermission(data['permission']);
-          this.userService.avatar = data['user'].avatar;
-          this.userService.isLoggedIn = true;
-          this.openDialog('Đăng ký thành công','/');
+          this.openDialog('Đăng ký thành công,Hãy vào email để xác thực trước khi sử dụng','/');
         },
         error => {
-          let objerror = JSON.parse(error.error);
-          for(let key in objerror.errors) {
-            console.log(key);
-            this.openDialog(objerror.errors[key][0],null);
+          for(let key in error.error.errors) {
+            this.openDialog(error.error.errors[key][0],null);
             break;
           }
           this.disableButton=false;

@@ -1,3 +1,4 @@
+import { CKEditorModule } from 'app/module/ckeditor';
 import { GlobalVariable } from './service/global.service';
 import { UserService } from './service/user.service';
 import { TitleService } from './service/title.service';
@@ -17,11 +18,9 @@ import { CardComponent } from './component/card/card.component';
 import { ListCardComponent } from './component/list-card/list-card.component';
 import { PageHeaderComponent } from './component/page-header/page-header.component';
 import { AvatarComponent } from './component/avatar/avatar.component';
-import { ListMyPostComponent } from './component/list-my-post/list-my-post.component';
 import { PageBodyComponent } from './component/page-body/page-body.component';
 import { SidenavComponent } from './component/sidenav/sidenav.component';
 import { CreatePostComponent } from './component/create-post/create-post.component';
-import { CKEditorModule } from 'app/module/ckeditor';
 import { HighlightJsModule, HighlightJsService } from 'angular2-highlight-js';
 import { TabSignupSigninComponent } from './component/tab-signup-signin/tab-signup-signin.component';
 import { SignupComponent } from './component/signup/signup.component';
@@ -36,6 +35,9 @@ import { TruncatePipe } from './pipe/truncate.pipe';
 import { ListCommentComponent } from './component/list-comment/list-comment.component';
 import { InformationUserComponent } from './component/information-user/information-user.component';
 import { BrowsePostComponent } from './component/browse-post/browse-post.component';
+import { CreateSeriesComponent } from './component/create-series/create-series.component';
+import { ListSeriesComponent } from './component/list-series/list-series.component';
+import { ListPostOfUserComponent } from './component/list-post-of-user/list-post-of-user.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -46,7 +48,6 @@ import { BrowsePostComponent } from './component/browse-post/browse-post.compone
     ListCardComponent,
     PageHeaderComponent,
     AvatarComponent,
-    ListMyPostComponent,
     PageBodyComponent,
     SidenavComponent,
     CreatePostComponent,
@@ -62,6 +63,9 @@ import { BrowsePostComponent } from './component/browse-post/browse-post.compone
     ListCommentComponent,
     InformationUserComponent,
     BrowsePostComponent,
+    CreateSeriesComponent,
+    ListSeriesComponent,
+    ListPostOfUserComponent,
   ],
   imports: [
     BrowserModule,
@@ -77,7 +81,8 @@ import { BrowsePostComponent } from './component/browse-post/browse-post.compone
     MyOwnCustomMaterialModule
   ],
   entryComponents: [
-    DialogNotificationComponent
+    DialogNotificationComponent,
+    CreateSeriesComponent
   ],
   providers: [HighlightJsService,TitleService,UserService,GlobalVariable],
   bootstrap: [AppComponent]

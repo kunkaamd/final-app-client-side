@@ -1,0 +1,16 @@
+.time-series {
+    margin: .3em 0 0 0;
+    height: 2em;
+    font-size: 90%;
+    color: rgba(0,0,0,0.6) !important;
+}
+.author-series {
+    margin: .3em 0 0 0;
+    height: 2em;
+    font-size: 100%;
+    color: rgba(0,0,0,0.6) !important;
+}
+.header-series {
+    text-decoration-line: none;
+    color: rgba(0,0,0,.87);
+}

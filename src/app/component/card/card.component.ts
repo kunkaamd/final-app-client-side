@@ -43,7 +43,9 @@ export class CardComponent implements OnInit {
         data => {
           this.item = null;
         },
-        error => {}
+        error => {
+          alert('bạn không đủ quyền');
+        }
       );
     }
   }

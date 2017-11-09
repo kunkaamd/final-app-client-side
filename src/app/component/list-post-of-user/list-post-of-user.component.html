@@ -5,12 +5,13 @@
     <p matLine>
       <span class="time-post">Được tạo vào lúc {{item.created_at}} </span>
     </p>
+    <mat-chip-list matLine>
+        <mat-chip *ngFor="let tag of item.tag" selected="true" color="warn">
+          {{tag.name}}
+        </mat-chip>
+    </mat-chip-list>
     <span class="fill-remaining-space"></span>
-    <button mat-icon-button >
-        <mat-icon>edit</mat-icon>
-    </button>
-    <button mat-icon-button>
-        <mat-icon>delete</mat-icon>
-    </button>
+    <div title="view"><p>{{item.view_count}}</p></div>
   </mat-list-item>
 </mat-list>
+  

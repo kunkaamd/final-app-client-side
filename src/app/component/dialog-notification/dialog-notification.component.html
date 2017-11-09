@@ -1,6 +1,22 @@
 <p mat-dialog-title>Thông báo</p>
 <div mat-dialog-content>
   <p>{{data.message}}</p>
+  <div *ngIf="data.confirmuser">
+  <button (click)="reSendEmail()" [disabled]="disableButton" mat-raised-button color="warm">
+    <div  fxLayout="row" fxLayoutAlign="start center">
+        <mat-progress-spinner #spinner style="width:25px;height: 25px;" *ngIf="disableButton"
+        [strokeWidth] ="3"
+        [diameter]="25"
+        [color]="'primary'"
+        [mode]="mode"
+        [value]="0"
+        >
+        </mat-progress-spinner>
+        Gởi lại mã xác thực cho tôi
+    </div>
+  </button>
+  <p>{{message}}</p>
+  </div>
 </div>
 <div mat-dialog-actions>
   <button mat-button (click)="close()" tabindex="2">Đóng</button>
