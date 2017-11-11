@@ -1,5 +1,6 @@
+import { AllSeriesComponent } from './component/all-series/all-series.component';
+import { SearchComponent } from './component/search/search.component';
 import { ListPostOfUserComponent } from './component/list-post-of-user/list-post-of-user.component';
-import { ListSeriesComponent } from './component/list-series/list-series.component';
 import { BrowsePostComponent } from './component/browse-post/browse-post.component';
 import { PermissionGuardService } from './service/guard/permission-guard.service';
 import { AuthGuardService } from './service/guard/auth-guard.service';
@@ -46,7 +47,15 @@ const appRoutes: Routes = [
     },
     {
         path: 'series',
-        component: ListSeriesComponent,
+        component: AllSeriesComponent,
+    },
+    {
+        path: 'search',
+        component: SearchComponent,
+    },
+    {
+        path: 'search/:key',
+        component: SearchComponent,
     },
     { path: '**', component: PageNotFoundComponent }
 ];

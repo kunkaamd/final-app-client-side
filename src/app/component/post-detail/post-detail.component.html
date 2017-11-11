@@ -6,7 +6,12 @@
   <div *ngIf="post?.content" fxFlex="85">
       <div class="content-post">
         <section [innerHTML]="post.content" highlight-js-content=".highlight"></section>
+        <div fxLayout="column-reverse" fxLayoutAlign="center end">
+          <strong>Author {{post.user.name}}</strong>
+        </div>
       </div>
+      <hr>
+      <h3>Comments</h3>
       <app-list-comment [postId]="postId" [comments]="post?.comment"></app-list-comment>
   </div>
   <div fxFlex></div>

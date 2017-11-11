@@ -1,17 +1,1 @@
-<mat-list>
-  <mat-list-item *ngFor="let item of list">
-    <img matListAvatar [src]="avatarURL" alt="...">
-    <h3 matLine><a routerLink="/post-detail/{{item.id}}" class="header-post">{{item.title}}</a> </h3>
-    <p matLine>
-      <span class="time-post">Được tạo vào lúc {{item.created_at}} </span>
-    </p>
-    <mat-chip-list matLine>
-        <mat-chip *ngFor="let tag of item.tag" selected="true" color="warn">
-          {{tag.name}}
-        </mat-chip>
-    </mat-chip-list>
-    <span class="fill-remaining-space"></span>
-    <div title="view"><p>{{item.view_count}}</p></div>
-  </mat-list-item>
-</mat-list>
-  
+<app-list-post [posts]="post"></app-list-post>

@@ -1,0 +1,16 @@
+.time-post {
+    margin: .3em 0 0 0;
+    height: 2em;
+    font-size: 90%;
+    color: rgba(0,0,0,0.6) !important;
+}
+.author-post {
+    margin: .3em 0 0 0;
+    height: 2em;
+    font-size: 100%;
+    color: rgba(0,0,0,0.6) !important;
+}
+.header-post {
+    text-decoration-line: none;
+    color: rgba(0,0,0,.87);
+}

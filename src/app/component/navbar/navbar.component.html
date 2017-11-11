@@ -2,8 +2,8 @@
     <button mat-button routerLink="/" fxShow="false" fxShow.gt-sm class="name-application">
     Application</button>
     <div fxLayout="row" fxShow="false" fxShow.gt-sm>
-        <button mat-button routerLink="/products">Bài viết hay</button>
         <button mat-button routerLink="/series">Series</button>
+        <button mat-button routerLink="/search">Tìm kiếm</button>
     </div>
     <span class="fill-spacer"></span>
     <!-- space -->
@@ -27,14 +27,14 @@
     </button>
     <mat-menu x-position="before" #menumain="matMenu">
         <button mat-menu-item routerLink="/">Home</button>
-        <button mat-menu-item routerLink="/">Bài viết hay</button>
         <button mat-menu-item routerLink="/series">Series</button>
+        <button mat-menu-item routerLink="/search">Tìm kiếm</button>
         <button mat-menu-item routerLink="/signin">Đăng nhập</button>
     </mat-menu>
     <mat-menu x-position="before" #menumainwithuser="matMenu">
         <button mat-menu-item routerLink="/">Home</button>
-        <button mat-menu-item routerLink="/">Bài viết hay</button>
         <button mat-menu-item routerLink="/series">Series</button>
+        <button mat-menu-item routerLink="/search">Tìm kiếm</button>
         <button mat-menu-item [mat-menu-trigger-for]="menuuser">{{userService.email}}</button>
     </mat-menu>
     <mat-menu x-position="before" #menuuser="matMenu">

@@ -1,0 +1,24 @@
+<mat-card>
+<mat-card-content>
+  <div fxLayout="row">
+  <mat-form-field class="full-width">
+    <span matPrefix><mat-icon>search</mat-icon> &nbsp;</span>
+    <input #searchInput type="text" matInput placeholder="SEARCH">
+  </mat-form-field>
+  </div>
+  <div fxLayout="row" fxLayoutAlign="end center">
+      <button mat-raised-button (click)="onSearch(searchInput.value)">Tìm</button>
+  </div>
+  <mat-tab-group *ngIf="data">
+    <mat-tab label="Bài viết">
+      <app-list-post [posts]="data.post"></app-list-post>
+    </mat-tab>
+    <mat-tab label="Series">
+      <app-list-series [series]="data.series"></app-list-series>
+    </mat-tab>
+    <mat-tab label="Tác giả">
+      <app-list-user [users]="data.user"></app-list-user>
+    </mat-tab>
+  </mat-tab-group>
+</mat-card-content>
+</mat-card>

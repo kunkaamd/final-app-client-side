@@ -1,4 +1,3 @@
-import { GlobalVariable } from 'app/service/global.service';
 import { ActivatedRoute } from '@angular/router';
 import {FetchdataService} from '../../service/fetchdata.service';
 import {TitleService} from '../../service/title.service';
@@ -11,20 +10,21 @@ import { Component, OnInit } from '@angular/core';
   providers: [FetchdataService]
 })
 export class ListPostOfUserComponent implements OnInit {
-
-  list:any;
-  avatarURL:string;
+  post:any;
+  series:any;
+  user:any;
   constructor(private titleservice:TitleService,private fetchData:FetchdataService,private router: ActivatedRoute) { 
   }
 
   ngOnInit() {
     this.router.params.subscribe(
       param => {
-        this.fetchData.fetchDataMethodGet('post-of-user/'+param['id']).subscribe(
+        this.fetchData.fetchDataMethodGet('information-of-user/'+param['id']).subscribe(
           data => {
-            this.list = data['data'];
-            this.avatarURL = GlobalVariable.BASE_IMAGE_URL + this.list[0].user.avatar;
-            this.titleservice.changeTitle('Bài viết của '+ this.list[0].user.name);
+            this.post = data['data'].post;
+            this.series = data['data'].series;
+            this.user = data['data'].user;
+            this.titleservice.changeTitle('Bài viết của '+ this.user.name);
           },
           error => {}
         );

@@ -38,6 +38,10 @@ import { BrowsePostComponent } from './component/browse-post/browse-post.compone
 import { CreateSeriesComponent } from './component/create-series/create-series.component';
 import { ListSeriesComponent } from './component/list-series/list-series.component';
 import { ListPostOfUserComponent } from './component/list-post-of-user/list-post-of-user.component';
+import { SearchComponent } from './component/search/search.component';
+import { ListPostComponent } from './component/list-post/list-post.component';
+import { AllSeriesComponent } from './component/all-series/all-series.component';
+import { ListUserComponent } from './component/list-user/list-user.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -66,6 +70,10 @@ import { ListPostOfUserComponent } from './component/list-post-of-user/list-post
     CreateSeriesComponent,
     ListSeriesComponent,
     ListPostOfUserComponent,
+    SearchComponent,
+    ListPostComponent,
+    AllSeriesComponent,
+    ListUserComponent,
   ],
   imports: [
     BrowserModule,
