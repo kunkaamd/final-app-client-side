@@ -1,7 +1,7 @@
 <mat-list>
     <mat-list-item *ngFor="let item of users">
       <img matListAvatar [src]="avatarURL+item.avatar" alt="...">
-      <h3 matLine><a class="header-name" routerLink="/post-of-user/{{item.id}}">{{item.name}}</a></h3>
+      <h3 matLine><a class="header-name" routerLink="/information-user/{{item.id}}">{{item.name}}</a></h3>
       <p matLine>
         <span class="author-email">Email :{{item.email}} </span><br>
       </p>

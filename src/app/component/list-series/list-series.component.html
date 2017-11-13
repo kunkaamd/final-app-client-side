@@ -3,7 +3,7 @@
     <img matListAvatar [src]="avatarURL+item.user?.avatar" alt="...">
     <h3 matLine><a class="header-series" routerLink="/post-of-series/{{item.name}}/{{item.id}}">{{item.name}}</a></h3>
     <p matLine>
-      <span class="author-series">Tác giả <a routerLink="/post-of-user/{{item.user?.id}}">{{item.user?.name}}</a> </span><br>
+      <span class="author-series">Tác giả <a routerLink="/information-user/{{item.user?.id}}">{{item.user?.name}}</a> </span><br>
       <span class="time-series">Được tạo vào lúc {{item.created_at}} </span>
     </p>
     <span class="fill-remaining-space"></span>

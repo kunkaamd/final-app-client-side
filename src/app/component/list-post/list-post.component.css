@@ -14,3 +14,8 @@
     text-decoration-line: none;
     color: rgba(0,0,0,.87);
 }
+.chip a{
+    font-size:13px;
+    color: currentColor;
+    text-decoration-line: none;
+}

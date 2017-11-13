@@ -3,7 +3,7 @@
     <h3>Tác giả hot</h3>
     <ul>
       <li *ngFor="let user of author">
-        <a routerLink="post-of-user/{{user.id}}" matTooltip="Tác giả {{user.name}}">
+        <a routerLink="/information-user/{{user.id}}" matTooltip="Tác giả {{user.name}}">
             <div fxLayout="row">                
               <div fxFlex="80">{{user.name | truncate:15}}</div>
               <div fxFlex><mat-icon style="font-size:17px">create</mat-icon>{{user.postnumber}}</div>
@@ -14,7 +14,7 @@
     <h3>Tag phổ biến</h3>
     <ul>
       <li *ngFor="let tag of tags">
-        <a matTooltip="Tag {{tag.name}}">
+        <a routerLink="/post-of-tag/{{tag.id}}" matTooltip="Tag {{tag.name}}">
             <div fxLayout="row">                
               <div fxFlex="80">{{tag.name | truncate:15}}</div>
               <div fxFlex><mat-icon style="font-size:17px">tag</mat-icon>{{tag.postnumber}}</div>

@@ -3,7 +3,7 @@
   <div *ngIf="!post?.content">
       Loading...
   </div>
-  <div *ngIf="post?.content" fxFlex="85">
+  <div *ngIf="post?.content" fxFlex="85" class="font-detail">
       <div class="content-post">
         <section [innerHTML]="post.content" highlight-js-content=".highlight"></section>
         <div fxLayout="column-reverse" fxLayoutAlign="center end">

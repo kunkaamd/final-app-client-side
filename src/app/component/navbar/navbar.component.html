@@ -3,6 +3,7 @@
     Application</button>
     <div fxLayout="row" fxShow="false" fxShow.gt-sm>
         <button mat-button routerLink="/series">Series</button>
+        <button mat-button routerLink="/tag">Tag</button>
         <button mat-button routerLink="/search">Tìm kiếm</button>
     </div>
     <span class="fill-spacer"></span>
@@ -28,18 +29,20 @@
     <mat-menu x-position="before" #menumain="matMenu">
         <button mat-menu-item routerLink="/">Home</button>
         <button mat-menu-item routerLink="/series">Series</button>
+        <button mat-menu-item routerLink="/tag">Tag</button>
         <button mat-menu-item routerLink="/search">Tìm kiếm</button>
         <button mat-menu-item routerLink="/signin">Đăng nhập</button>
     </mat-menu>
     <mat-menu x-position="before" #menumainwithuser="matMenu">
         <button mat-menu-item routerLink="/">Home</button>
         <button mat-menu-item routerLink="/series">Series</button>
+        <button mat-menu-item routerLink="/tag">Tag</button>
         <button mat-menu-item routerLink="/search">Tìm kiếm</button>
         <button mat-menu-item [mat-menu-trigger-for]="menuuser">{{userService.email}}</button>
     </mat-menu>
     <mat-menu x-position="before" #menuuser="matMenu">
         <button mat-menu-item routerLink="/"><mat-icon>info</mat-icon>Thông tin cá nhân</button>
-        <button mat-menu-item routerLink="/post-of-user/{{userService.id}}"><mat-icon>code</mat-icon>Bài viết của tôi</button>
+        <button mat-menu-item routerLink="/information-user/{{userService.id}}"><mat-icon>code</mat-icon>Bài viết của tôi</button>
         <button *ngIf="userService.permission?.indexOf('create-post')!=-1" mat-menu-item routerLink="/create-post"><mat-icon>create</mat-icon>Tạo bài viết</button>
         <button *ngIf="userService.permission?.indexOf('published')!=-1" mat-menu-item routerLink="/browse-post"><mat-icon>note_add</mat-icon>Duyệt bài viết</button>
         <button mat-menu-item (click)="logout()"><mat-icon>subdirectory_arrow_left</mat-icon>Đăng xuất</button>

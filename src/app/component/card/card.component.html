@@ -1,8 +1,8 @@
 <mat-card *ngIf="item" class="example-card">
     <mat-card-header>
       <div mat-card-avatar class="example-header-image" [style.background-image]="'url(' +urlBaseImage+ item.user?.avatar + ')'"></div>
-      <mat-card-title>{{item.user?.email}}</mat-card-title>
-      <mat-card-subtitle>{{item.user?.name}}</mat-card-subtitle>
+      <mat-card-title >{{item.user?.name}}</mat-card-title>
+      <mat-card-subtitle >{{item.user?.email}}</mat-card-subtitle>
     </mat-card-header>
     <img mat-card-image [src]="postImage" alt="{{item.title}}">
     <mat-card-content>
@@ -10,8 +10,8 @@
         {{item.title}}
       </h4>
       <mat-chip-list>
-        <mat-chip *ngFor="let tag of item.tag" selected="true" color="warn">
-          {{tag.name}}
+        <mat-chip *ngFor="let tag of item.tag" selected="true" color="warn" class="card-chip">
+          <a routerLink="/post-of-tag/{{tag.id}}">{{tag.name}}</a>
         </mat-chip>
       </mat-chip-list>
     </mat-card-content>

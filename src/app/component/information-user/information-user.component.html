@@ -1,3 +1,8 @@
-<p>
-  information-user works!
-</p>
+<mat-tab-group>
+  <mat-tab label="Bài viết">
+    <app-list-post [posts]="post"></app-list-post>
+  </mat-tab>
+  <mat-tab label="Series">
+    <app-list-series [series]="series"></app-list-series>
+  </mat-tab>
+</mat-tab-group>

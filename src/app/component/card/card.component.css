@@ -2,8 +2,11 @@
     margin-top: 10px;
     width:70%;
 }
-
 .example-header-image {
     background-size: cover;
 }
-  
+.card-chip a{
+    font-size:13px;
+    color: currentColor;
+    text-decoration-line: none;
+}

@@ -1,4 +1,3 @@
-import { CKEditorModule } from 'app/module/ckeditor';
 import { GlobalVariable } from './service/global.service';
 import { UserService } from './service/user.service';
 import { TitleService } from './service/title.service';
@@ -37,11 +36,14 @@ import { InformationUserComponent } from './component/information-user/informati
 import { BrowsePostComponent } from './component/browse-post/browse-post.component';
 import { CreateSeriesComponent } from './component/create-series/create-series.component';
 import { ListSeriesComponent } from './component/list-series/list-series.component';
-import { ListPostOfUserComponent } from './component/list-post-of-user/list-post-of-user.component';
 import { SearchComponent } from './component/search/search.component';
 import { ListPostComponent } from './component/list-post/list-post.component';
 import { AllSeriesComponent } from './component/all-series/all-series.component';
 import { ListUserComponent } from './component/list-user/list-user.component';
+import { CKEditorModule } from './module/ckeditor/ckeditor.module';
+import { ListTagComponent } from './component/list-tag/list-tag.component';
+import { AllTagComponent } from './component/all-tag/all-tag.component';
+import { PostOfTagComponent } from './component/post-of-tag/post-of-tag.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -69,11 +71,13 @@ import { ListUserComponent } from './component/list-user/list-user.component';
     BrowsePostComponent,
     CreateSeriesComponent,
     ListSeriesComponent,
-    ListPostOfUserComponent,
     SearchComponent,
     ListPostComponent,
     AllSeriesComponent,
     ListUserComponent,
+    ListTagComponent,
+    AllTagComponent,
+    PostOfTagComponent,
   ],
   imports: [
     BrowserModule,

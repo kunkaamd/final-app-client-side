@@ -1,6 +1,8 @@
+import { PostOfTagComponent } from './component/post-of-tag/post-of-tag.component';
+import { AllTagComponent } from './component/all-tag/all-tag.component';
+import { InformationUserComponent } from './component/information-user/information-user.component';
 import { AllSeriesComponent } from './component/all-series/all-series.component';
 import { SearchComponent } from './component/search/search.component';
-import { ListPostOfUserComponent } from './component/list-post-of-user/list-post-of-user.component';
 import { BrowsePostComponent } from './component/browse-post/browse-post.component';
 import { PermissionGuardService } from './service/guard/permission-guard.service';
 import { AuthGuardService } from './service/guard/auth-guard.service';
@@ -32,8 +34,8 @@ const appRoutes: Routes = [
         component: PostOfSeriesComponent,
     },
     {
-        path: 'post-of-user/:id',
-        component: ListPostOfUserComponent,
+        path: 'information-user/:id',
+        component: InformationUserComponent,
     },
     {
         path: 'post-detail/:id',
@@ -56,6 +58,14 @@ const appRoutes: Routes = [
     {
         path: 'search/:key',
         component: SearchComponent,
+    },
+    {
+        path: 'tag',
+        component: AllTagComponent,
+    },
+    {
+        path: 'post-of-tag/:id',
+        component: PostOfTagComponent,
     },
     { path: '**', component: PageNotFoundComponent }
 ];

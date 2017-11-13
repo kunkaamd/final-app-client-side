@@ -3,14 +3,14 @@
     <img matListAvatar [src]="avatarURL+item.user?.avatar" alt="...">
     <h3 matLine><a routerLink="/post-detail/{{item.id}}" class="header-post">{{item.title}}</a> </h3>
     <p matLine>
-      <span class="author-post">Tác giả <a routerLink="/post-of-user/{{item.user?.id}}">{{item.user?.name}}</a> </span>
+      <span class="author-post">Tác giả <a routerLink="/information-user/{{item.user?.id}}">{{item.user?.name}}</a> </span>
     </p>
     <p matLine>
       <span class="time-post">Được tạo vào lúc {{item.created_at}} </span>
     </p>
     <mat-chip-list matLine>
-        <mat-chip *ngFor="let tag of item.tag" selected="true" color="warn">
-          {{tag.name}}
+        <mat-chip *ngFor="let tag of item.tag" selected="true" color="warn" class="chip">
+          <a routerLink="/post-of-tag/{{tag.id}}">{{tag.name}}</a>
         </mat-chip>
     </mat-chip-list>
     <span class="fill-remaining-space"></span>

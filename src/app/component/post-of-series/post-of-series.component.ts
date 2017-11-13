@@ -14,14 +14,13 @@ export class PostOfSeriesComponent implements OnInit {
   posts:any;
   constructor(private fetchService:FetchdataService,private titleservice:TitleService,private route:ActivatedRoute) { 
   }
-
   ngOnInit() {
     this.route.params.subscribe(
       params => {
         this.fetchService.fetchDataMethodGet('post-of-series/'+params['id']).subscribe(
           data => {
             this.posts = data['data'];
-            this.titleservice.changeTitle(params['title']);
+            this.titleservice.changeTitle("Series " + params['title']);
           },
           error => {}
         );
