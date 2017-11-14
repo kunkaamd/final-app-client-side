@@ -11,7 +11,7 @@ import { TitleService } from 'app/service/title.service';
 })
 export class PostOfSeriesComponent implements OnInit {
 
-  posts:any;
+  posts:any = {};
   constructor(private fetchService:FetchdataService,private titleservice:TitleService,private route:ActivatedRoute) { 
   }
   ngOnInit() {
@@ -26,6 +26,16 @@ export class PostOfSeriesComponent implements OnInit {
         );
       }
     );
-    
+  }
+  getdata(page:string){
+    this.fetchService.fetchDataMethodGet('post-of-series/'+this.route.snapshot.params['id']+page).subscribe(
+      data => {
+        this.posts = data['data'];
+      },
+      error => {}
+    );
+  }
+  pageChange(event:any){
+    this.getdata('?page='+(event.pageIndex+1));
   }
 }

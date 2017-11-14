@@ -1,1 +1,6 @@
-<app-list-tag [tags]="data"></app-list-tag>
+<app-list-tag [tags]="data.data"></app-list-tag>
+<mat-paginator [length]="data.total"
+[pageSize]="data.per_page"
+(page)="pageChange($event)"
+>
+</mat-paginator>

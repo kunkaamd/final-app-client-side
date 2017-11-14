@@ -3,7 +3,7 @@
   <div fxLayout="row">
   <mat-form-field class="full-width">
     <span matPrefix><mat-icon>search</mat-icon> &nbsp;</span>
-    <input #searchInput type="text" matInput placeholder="SEARCH">
+    <input #searchInput type="text" (keyup.enter)="onSearch(searchInput.value)" matInput placeholder="SEARCH">
   </mat-form-field>
   </div>
   <div fxLayout="row" fxLayoutAlign="end center">

@@ -1,3 +1,9 @@
-<div *ngIf="data">
-  <app-list-card [posts]="data.post"></app-list-card>
+<div *ngIf="data.post?.data">
+  <app-list-card [posts]="data.post?.data"></app-list-card>
 </div>
+<mat-paginator [length]="data.post?.total"
+[pageSize]="data.post?.per_page"
+(page)="pageChange($event)"
+[pageIndex]="data.post?.current_page-1"
+>
+</mat-paginator>

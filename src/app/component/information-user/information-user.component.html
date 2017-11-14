@@ -1,8 +1,18 @@
 <mat-tab-group>
   <mat-tab label="Bài viết">
-    <app-list-post [posts]="post"></app-list-post>
+    <app-list-post [posts]="post.data"></app-list-post>
+    <mat-paginator [length]="post.total"
+    [pageSize]="post.per_page"
+    (page)="pageChangePost($event)"
+    [pageIndex]="post.current_page-1"
+    ></mat-paginator>
   </mat-tab>
   <mat-tab label="Series">
-    <app-list-series [series]="series"></app-list-series>
+    <app-list-series [series]="series.data"></app-list-series>
+    <mat-paginator [length]="series.total"
+    [pageSize]="series.per_page"
+    (page)="pageChangePost($event)"
+    [pageIndex]="series.current_page-1"
+    ></mat-paginator>
   </mat-tab>
 </mat-tab-group>

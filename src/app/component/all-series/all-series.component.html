@@ -1,1 +1,6 @@
-<app-list-series [series]="series"></app-list-series>
+<app-list-series [series]="series.data"></app-list-series>
+<mat-paginator [length]="series.total"
+    [pageSize]="series.per_page"
+    (page)="pageChange($event)"
+    >
+</mat-paginator>

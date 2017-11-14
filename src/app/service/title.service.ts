@@ -11,5 +11,4 @@ export class TitleService {
     this.titleDocument.setTitle(title);
   }
   constructor(private titleDocument: Title ) { }
-
 }

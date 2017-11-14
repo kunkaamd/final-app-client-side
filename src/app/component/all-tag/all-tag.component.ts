@@ -10,17 +10,23 @@ import { Component, OnInit } from '@angular/core';
   providers: [FetchdataService]
 })
 export class AllTagComponent implements OnInit {
-  data:any;
+  data:any = {};
   constructor(private fetchData:FetchdataService,private titleService:TitleService) { 
     this.titleService.changeTitle('Tags');
   }
 
   ngOnInit() {
-    this.fetchData.fetchDataMethodGet('tag').subscribe(
+    this.getdata('');
+  }
+  getdata(page:string){
+    this.fetchData.fetchDataMethodGet('tag'+page).subscribe(
       data => {
         this.data = data["data"];
       }
     );
+  }
+  pageChange(event:any){
+    this.getdata('?page='+(event.pageIndex+1));
   }
 
 }

@@ -10,18 +10,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AllPostComponent implements OnInit {
 
-  posts:any;
+  posts:any = {};
   constructor(private fetchService:FetchdataService,private titleservice:TitleService) { 
     this.titleservice.changeTitle("Bài viết");
   }
 
   ngOnInit() {
-    this.fetchService.fetchDataMethodGet('post').subscribe(
+    this.getdata("");
+  }
+  getdata(page:string){
+    this.fetchService.fetchDataMethodGet('post'+page).subscribe(
       data => {
         this.posts = data['data'];
       },
       error => {}
     );
+  }
+  pageChange(event:any){
+    this.getdata('?page='+(event.pageIndex+1));
   }
 
 }

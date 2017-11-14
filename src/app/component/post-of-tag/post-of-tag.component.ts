@@ -11,7 +11,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PostOfTagComponent implements OnInit {
 
-  data:any;
+  data:any = {};
   constructor(private fetchService:FetchdataService,private titleservice:TitleService,private route:ActivatedRoute) { 
   }
   ngOnInit() {
@@ -20,12 +20,22 @@ export class PostOfTagComponent implements OnInit {
         this.fetchService.fetchDataMethodGet('post-of-tag/'+params['id']).subscribe(
           data => {
             this.data = data['data'];
-            console.log(this.data);
-            this.titleservice.changeTitle("Tag "+this.data.name);
+            this.titleservice.changeTitle("Tag "+this.data.tag.name);
           },
           error => {}
         );
       }
+    );
+  }
+  pageChange(event:any){
+    this.getdata('?page='+(event.pageIndex+1));
+  }
+  getdata(page:string){
+    this.fetchService.fetchDataMethodGet('post-of-tag/'+this.route.snapshot.params['id']+page).subscribe(
+      data => {
+        this.data = data['data'];
+      },
+      error => {}
     );
   }
 
